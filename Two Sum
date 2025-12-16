@@ -1,0 +1,70 @@
+Two Sum
+Subscribe to TUF+
+
+Hints
+Company
+Given an array of integers nums and an integer target. Return the indices(0 - indexed) of two elements in nums such that they add up to target.
+
+
+
+Each input will have exactly one solution, and the same element cannot be used twice. Return the answer in increasing order.
+
+
+Example 1
+
+Input: nums = [1, 6, 2, 10, 3], target = 7
+
+Output: [0, 1]
+
+Explanation:
+
+nums[0] + nums[1] = 1 + 6 = 7
+
+
+------------------------------------------------------------------
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+
+        for (int i = 0; i < nums.length-1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+
+        return new int[]{}; // agar pair na mile
+    }
+}
+
+TC - o(n2)
+
+--
+import java.util.HashMap;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+
+            int required = target - nums[i];
+
+            if (map.containsKey(required)) {
+                return new int[]{map.get(required), i};
+            }
+
+            map.put(nums[i], i);
+        }
+
+        return new int[]{}; // pair na mile
+    }
+}
+--- TC = o(n)
+
+
+
+
+
