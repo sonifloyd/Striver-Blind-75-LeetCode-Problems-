@@ -40,4 +40,5 @@ Time: O(n²)
 
 Space: O(1) extra space
 
+o(n) -> time complaxicty nhi ho sakti 
 
