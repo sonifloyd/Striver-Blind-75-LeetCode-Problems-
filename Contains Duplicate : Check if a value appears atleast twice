@@ -1,0 +1,98 @@
+public class ContainsDuplicateBrute {
+
+    public static boolean containsDuplicate(int[] nums) {
+        int n = nums.length;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 1};
+        System.out.println(containsDuplicate(nums)); // true
+    }
+}
+
+Complexity
+
+Time: O(n²)
+
+Space: O(1)
+
+Hash Set ------------------
+import java.util.HashSet;
+
+public class ContainsDuplicateOptimized {
+
+    public static boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num : nums) {
+            if (set.contains(num)) {
+                return true;
+            }
+            set.add(num);
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4};
+        System.out.println(containsDuplicate(nums)); // false
+    }
+}
+
+Complexity
+
+Time: O(n)
+
+Space: O(n)
+
+
+---- Sorting method ---
+import java.util.Arrays;
+
+public class ContainsDuplicateSorting {
+
+    public static boolean containsDuplicate(int[] nums) {
+
+        // Step 1: Sort the array
+        Arrays.sort(nums);
+
+        // Step 2: Compare adjacent elements
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                return true;   // Duplicate found
+            }
+        }
+
+
+
+        return false; // No duplicates
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 1};
+        System.out.println(containsDuplicate(nums)); // true
+    }
+}
+
+
+Sorting ka time
+
+Arrays.sort(nums)
+
+Time = O(n log n)
+
+2️⃣ Loop ka time
+
+Single loop for adjacent check
+
+Time = O(n)
+-- 
