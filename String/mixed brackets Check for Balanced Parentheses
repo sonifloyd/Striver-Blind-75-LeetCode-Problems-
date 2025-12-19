@@ -1,0 +1,47 @@
+import java.util.Stack;
+
+class Solution {
+    public boolean isValid(String s) {
+
+        Stack<Character> stack = new Stack<>();
+
+        for (char ch : s.toCharArray()) {
+
+            if (ch == '(' || ch == '{' || ch == '[') {
+                stack.push(ch);
+            } else {
+                if (stack.isEmpty()) return false;
+
+                char top = stack.pop();
+                if ((ch == ')' && top != '(') ||
+                    (ch == '}' && top != '{') ||
+                    (ch == ']' && top != '[')) {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+}
+⏱ Complexity 
+
+Time: O(n)
+
+Space: O(n)
+
+“For single-type parentheses we can optimize using a counter, but for mixed brackets stack is the correct and safe approach.”
+
+-----
+
+public static boolean isBalanced(String s) {
+    int count = 0;
+
+    for (char ch : s.toCharArray()) {
+        if (ch == '(') count++;
+        else if (ch == ')') count--;
+
+        if (count < 0) return false;
+    }
+    return count == 0;
+}
+TC: O(n) | SC: O(1) ✅
