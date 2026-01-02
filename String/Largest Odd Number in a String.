@@ -1,0 +1,60 @@
+Key Observations (Very Important)
+
+Odd number rule
+👉 A number is odd only if its last digit is odd (1,3,5,7,9)
+
+Largest number rule
+👉 Among valid odd substrings, the largest value will be:
+
+The longest possible substring
+
+Ending at the rightmost odd digit
+
+Starting from the first non-zero digit
+
+Leading zeroes are NOT allowed
+
+-----------------------------
+Optimal Strategy
+
+Find the last odd digit in the string
+
+From the start, skip all leading '0'
+
+Return the substring between:
+
+first non-zero index
+
+last odd digit index
+
+If no odd digit exists → return ""
+-------------------------
+class Solution {
+    public String largestOddNumber(String s) {
+        int n = s.length();
+
+        // Step 1: Find last odd digit
+        int lastOddIndex = -1;
+        for (int i = n - 1; i >= 0; i--) {
+            int digit = s.charAt(i) - '0';
+            if (digit % 2 == 1) {
+                lastOddIndex = i;
+                break;
+            }
+        }
+
+        // No odd digit found
+        if (lastOddIndex == -1) return "";
+
+        // Step 2: Find first non-zero digit
+        int start = 0;
+        while (start <= lastOddIndex && s.charAt(start) == '0') {
+            start++;
+        }
+
+        // If all digits before odd index are zeros
+        if (start > lastOddIndex) return "";
+
+        return s.substring(start, lastOddIndex + 1);
+    }
+}
