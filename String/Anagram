@@ -76,6 +76,36 @@ Complexity
 Time: O(n) ✅
 
 Space: O(1) ✅
+
+--
+👉 Ye 'l' character literal hi hai
+(Java me 'l' aur l same nahi hote — 'l' char literal hai)
+char internally kya hota hai? 🧠
+Java me char number ki tarah store hota hai (Unicode value)
+
+'a' → 97
+'b' → 98
+'l' → 108
+So internally:
+char ch = 'l';  // actually 108
+s1.charAt(i) - 'a'
+'l' - 'a'
+108 - 97 = 11
+Java automatically char → int me convert kar deta hai
+(ise kehte hain implicit type conversion / type promotion)
+charAt() char deta hai, int kaise ban gaya?
+A: Java automatically type promotion karta hai char → int during arithmetic operations.
+charAt() char return karta hai, lekin arithmetic operation ke time Java us char ko Unicode integer me convert kar deta hai
+
+Java me int array by default 0 se initialize hota hai.
+freq[11] = 0
+freq[11]++;
+freq[11] = freq[11] + 1
+freq[11] = 1
+Again 
+freq[11]++;
+freq[11] = 2
+
 ------------------------------
 
 Using HashMap (When characters are NOT limited)
