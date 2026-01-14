@@ -134,4 +134,13 @@ public class ValidAnagramMap {
 Time Complexity: O(n)
 Space Complexity: O(n)
 
+get() returns null if key is absent, while getOrDefault() returns a provided default value, avoiding NullPointerException."
 
+HashMap<Character, Integer> map = new HashMap<>();
+
+System.out.println(map.get('a'));           // null
+System.out.println(map.getOrDefault('a', 0)); // 0
+getOrDefault ka default value hamesha VALUE type ka hota hai, key type ka nahi."
+Agar HashMap char → char type ka ho,
+to default value char hi hogi,
+String ya Integer nahi.
