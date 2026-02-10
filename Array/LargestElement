@@ -1,0 +1,51 @@
+public static int findLargest(int[] arr) {
+    if (arr == null || arr.length == 0) {
+        throw new IllegalArgumentException("Array is empty");
+    }
+
+    int largest = Integer.MIN_VALUE;
+
+    for (int i = 0; i < arr.length; i++) {
+        if (arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+    return largest;
+}
+--- 
+IllegalArgumentException kya hai?
+
+Ye runtime exception hai (unchecked exception)
+
+Jab hum method ko galat input dete hain tab use hoti hai
+throw keyword ka role
+
+throw ka matlab:
+👉 “Yahin se error fek do, aage code mat chalao”
+Jaise hi ye line execute hoti hai:
+Method turant stop ho jata hai
+Control caller ko chala jata hai
+Program crash karega (agar catch nahi kiya)
+java.util.NoSuchElementException -> agar ye line add nhi kiye to 
+
+--- -- 
+Case	Example	Meaning
+null	int[] arr = null;	Array exists hi nahi
+empty	int[] arr = new int[0];	Array hai, elements nahi
+
+Way 1: Direct initialization (BEST & MOST USED)
+int[] arr = {1, 2, 3, 4, 5};
+
+Way 2: Size ke saath assign
+int[] arr = new int[5];
+arr[0] = 1;
+arr[1] = 2;
+arr[2] = 3;
+arr[3] = 4;
+arr[4] = 5;
+
+Way 3: Reassign array (agar pehle new int[0] likh diya ho)
+int[] arr = new int[0];
+arr = new int[]{1, 2, 3, 4, 5};
+👉 Reassignment allowed hai, but arr[] = ❌ allowed nahi
+
