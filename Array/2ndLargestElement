@@ -1,0 +1,32 @@
+public static int secondLargest(int[] arr) {
+    if (arr == null || arr.length < 2) {
+        throw new IllegalArgumentException("Array must have at least two elements");
+    }
+
+    int largest = Integer.MIN_VALUE;
+    int secondLargest = Integer.MIN_VALUE;
+
+    for (int i = 0; i < arr.length; i++) {
+
+        if (arr[i] > largest) {
+            secondLargest = largest;
+            largest = arr[i];
+        } 
+        else if (arr[i] < largest && arr[i] > secondLargest) {
+            secondLargest = arr[i];
+        }
+    }
+    return secondLargest;
+}
+------------------------
+Condition ka simple breakdown
+1️⃣ if (arr[i] > largest)
+New largest mil gaya
+Purana largest → secondLargest
+2️⃣ else if (arr[i] < largest && arr[i] > secondLargest)
+Duplicate largest ignore
+Proper second largest update
+🗣️ Interview me kaise explain karogi?
+
+“I maintain two variables, largest and secondLargest. While iterating, if the current element is greater than largest,
+I shift largest to secondLargest. Otherwise, if it lies between largest and secondLargest, I update secondLargest. This works in O(n) time without sorting.”
