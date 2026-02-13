@@ -34,7 +34,9 @@ public static int removeDuplicates(int[] arr) {
     for (int num : arr) {
         if (!set.contains(num)) {
             set.add(num);
-            arr[index++] = num;
+         //   arr[index++] = num;
+1️⃣ arr[index] = num;
+2️⃣ index = index + 1;
         }
     }
 
