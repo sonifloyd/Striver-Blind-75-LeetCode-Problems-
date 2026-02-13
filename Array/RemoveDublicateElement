@@ -1,0 +1,46 @@
+Remove dublicate element in sorted way 
+
+public static int removeDuplicates(int[] arr) {
+
+    if (arr.length == 0) return 0;
+
+    int j = 0;  // unique element pointer
+
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] != arr[j]) {
+            j++;
+            arr[j] = arr[i];
+        }
+    }
+
+    return j + 1;   // new length
+}
+Logic
+j holds position of last unique element
+i scans array
+Jab naya element milta hai → usko next position pe daal dete hain
+Return length = 3
+Time: O(n)
+Space: O(1)
+
+--- Unsorted array ---
+ using hashset ---
+public static int removeDuplicates(int[] arr) {
+
+    HashSet<Integer> set = new HashSet<>();
+
+    int index = 0;
+
+    for (int num : arr) {
+        if (!set.contains(num)) {
+            set.add(num);
+            arr[index++] = num;
+        }
+    }
+
+    return index;
+}
+Time: O(n)
+Space: O(n)
+
+
