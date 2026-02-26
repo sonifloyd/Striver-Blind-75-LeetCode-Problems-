@@ -1,0 +1,23 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String word = "programming";
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        // Step 1: Count characters
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        // Step 2: Print only duplicate characters
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.println(entry.getKey() + " = " + entry.getValue());
+            }
+        }
+    }
+}
