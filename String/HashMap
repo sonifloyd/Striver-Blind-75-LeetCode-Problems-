@@ -23,7 +23,10 @@ map.get("Apple");   // 20
 map.containsKey("Apple");  // true
 map.remove("Banana");
 
-for (Map.Entry<String, Integer> entry : map.entrySet()) {
+for (Map.Entry<String, Integer> entry : map.entrySet()) { // Yaha Entry ek inner interface hai 
+jo Map ke andar defined hoti hai. Map ek interface hai 
+Isliye syntax hota hai:
+OuterInterface.InnerInterface
     System.out.println(entry.getKey() + " = " + entry.getValue());
 }
 
