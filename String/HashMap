@@ -1,0 +1,46 @@
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<String, Integer> map = new HashMap<>();
+
+        map.put("Apple", 10);
+        map.put("Banana", 5);
+        map.put("Mango", 8);
+
+        System.out.println(map); // {Apple=10, Banana=5, Mango=8}
+    }
+}
+
+map.put("Apple", 20);  // value update ho jayegi
+
+Agar same key dobara daaloge → value update ho jayegi.
+
+get() → Value nikalne ke liye
+map.get("Apple");   // 20
+
+map.containsKey("Apple");  // true
+map.remove("Banana");
+
+for (Map.Entry<String, Integer> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + " = " + entry.getValue());
+}
+
+map.getOrDefault(key, defaultValue)
+Agar key present hai → uski value return karega
+👉 Agar key present nahi hai → defaultValue return karega
+
+
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("Apple", 10);
+
+        System.out.println(map.getOrDefault("Apple", 0));   // 10
+        System.out.println(map.getOrDefault("Mango", 0));   // 0
+    }
+}
