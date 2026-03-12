@@ -1,0 +1,40 @@
+import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int arr[] = {1, 2, 2, 3, 4, 4, 5};
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num : arr) {
+            set.add(num);
+        }
+
+        for (int num : set) {
+            System.out.print(num + " ");
+        }
+    }
+}
+//1 2 3 4 5
+
+Time Complexity → O(n)
+Space Complexity → O(n)
+
+--------Using LinkedHashSet (Maintains Order)
+import java.util.LinkedHashSet;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int arr[] = {1, 2, 2, 3, 4, 4, 5};
+        LinkedHashSet<Integer> set = new LinkedHashSet<>();
+
+        for (int num : arr) {
+            set.add(num);
+        }
+
+        for (int num : set) {
+            System.out.print(num + " ");
+        }
+    }
+}
