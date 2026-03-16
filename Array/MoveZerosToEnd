@@ -69,3 +69,6 @@ Final array:
 
 [1,2,3,4,1,0,0,0]
 
+Arrays.toString() method array ke elements ko human-readable format me print karta hai. 
+Agar hum array ko directly print karein to Java uska memory reference print karta hai.
+
