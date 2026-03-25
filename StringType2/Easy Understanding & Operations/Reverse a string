@@ -1,1 +1,34 @@
 
+class Main {
+    public static void main(String[] args) {
+        String s = "Ram";
+        StringBuilder rev = new StringBuilder();
+
+        for(int i = s.length() - 1; i >= 0; i--) {
+            rev.append(s.charAt(i));
+        }
+
+        System.out.println(rev.toString());
+    }
+}
+StringBuilder	O(n) ✅	O(n)
+In-place (char array swap)	O(n) ✅	O(1) ⭐
+
+---
+class Main {
+    public static void main(String[] args) {
+        char[] arr = "Ram".toCharArray();
+
+        int left = 0, right = arr.length - 1;
+
+        while(left < right){
+            char temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+
+        System.out.println(new String(arr));
+    }
+}
