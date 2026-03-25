@@ -15,3 +15,6 @@ public class Main {
         }
     }
 }
+
+We use a HashMap to store character frequencies. We iterate through the string, and for each character, 
+we use getOrDefault to get the current count and increment it by one. Finally, we iterate over the map to print the frequencies.
