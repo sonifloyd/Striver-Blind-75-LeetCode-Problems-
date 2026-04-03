@@ -16,6 +16,7 @@ class Solution {
 }
 Sorting Approach
 TC: O(n log n)
+Sorting takes O(n log n) because it processes n elements across log n levels of division.
 SC: O(n) (for arrays / sorting)
 ------------------
 ⚡ Approach 2: HashMap (Better for interviews)
