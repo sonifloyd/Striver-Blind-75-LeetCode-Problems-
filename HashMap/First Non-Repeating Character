@@ -1,0 +1,40 @@
+First Non-Repeating Character
+
+import java.util.*;
+
+public class Main {
+
+    public static char firstNonRepeating(String s) {
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        // Step 1: count frequency
+        for (char ch : s.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        // Step 2: find first non-repeating
+        for (char ch : s.toCharArray()) {
+            if (map.get(ch) == 1) {
+                return ch;
+            }
+        }
+
+        return '_'; // agar koi nahi mila
+    }
+
+    public static void main(String[] args) {
+        String s = "programming";
+        char result = firstNonRepeating(s);
+
+        System.out.println("First non-repeating: " + result);
+    }
+}
+
+------------------------------
+map.get('p')
+
+👉 output = 1
+
+map.get('r')
+
+👉 output = 2
