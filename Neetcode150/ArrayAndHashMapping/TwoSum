@@ -27,3 +27,8 @@ public int[] twoSum(int[] nums, int target) {
 
     return new int[] {};
 }
+Return line execute hoti hai:
+return new int[] { map.get(complement), i };
+
+👉 map.get(2) = 0
+👉 i = 1
