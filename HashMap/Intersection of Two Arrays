@@ -1,0 +1,82 @@
+Example:
+nums1 = [1,2,2,1]
+nums2 = [2,2]
+
+👉 Output:
+
+[2]
+Problem: Intersection of Two Arrays
+
+👉 Do arrays diye hain nums1 aur nums2
+👉 Common elements find karo (duplicate nahi chahiye)
+-----------------------------------------------
+Approach 1: HashSet (BEST 🔥)
+import java.util.*;
+
+public class Main {
+
+    public static int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> set1 = new HashSet<>();
+        HashSet<Integer> resultSet = new HashSet<>();
+
+        // Step 1: nums1 ko set me daalo
+        for (int num : nums1) {
+            set1.add(num);
+        }
+
+        // Step 2: nums2 check karo
+        for (int num : nums2) {
+            if (set1.contains(num)) {
+                resultSet.add(num);
+            }
+        }
+
+        // Step 3: set → array
+        int[] result = new int[resultSet.size()];
+        int i = 0;
+        for (int num : resultSet) {
+            result[i++] = num;
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] nums1 = {1,2,2,1};
+        int[] nums2 = {2,2};
+
+        int[] res = intersection(nums1, nums2);
+
+        System.out.println(Arrays.toString(res));
+    }
+}
+Time Complexity:
+O(n + m)
+-------------------------------------------------------------------------------
+
+public static int[] intersect(int[] nums1, int[] nums2) {
+    HashMap<Integer, Integer> map = new HashMap<>();
+    List<Integer> result = new ArrayList<>();
+
+    for (int num : nums1) {
+        map.put(num, map.getOrDefault(num, 0) + 1);
+    }
+
+    for (int num : nums2) {
+        if (map.containsKey(num) && map.get(num) > 0) {
+            result.add(num);
+            map.put(num, map.get(num) - 1);
+        }
+    }
+
+    int[] res = new int[result.size()];
+    for (int i = 0; i < result.size(); i++) {
+        res[i] = result.get(i);
+    }
+
+    return res;
+}
+
+Pattern yaad rakhna:
+Unique intersection → HashSet
+Duplicate allowed → HashMap (frequency)
