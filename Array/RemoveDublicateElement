@@ -24,6 +24,15 @@ Time: O(n)
 Space: O(1)
 The time complexity is O(n) since we traverse the array once,
 and the space complexity is O(1) because we modify the array in-place without extra space.”
+---
+int[] result = new int[j + 1];
+
+    for (int i = 0; i <= j; i++) {
+        result[i] = arr[i];
+    }
+
+    return result;
+}
 
 --- Unsorted array ---
  using hashset ---
@@ -46,5 +55,14 @@ public static int removeDuplicates(int[] arr) {
 }
 Time: O(n)
 Space: O(n)
+
+----
+Set<Integer> set = new HashSet<>();
+
+for (int num : arr) {
+    set.add(num); // duplicates automatically ignored
+}
+
+👉 No need for contains() — Set already handles duplicates
 
 
