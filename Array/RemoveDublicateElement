@@ -22,6 +22,8 @@ Jab naya element milta hai → usko next position pe daal dete hain
 Return length = 3
 Time: O(n)
 Space: O(1)
+The time complexity is O(n) since we traverse the array once,
+and the space complexity is O(1) because we modify the array in-place without extra space.”
 
 --- Unsorted array ---
  using hashset ---
