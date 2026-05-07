@@ -4,7 +4,7 @@ A primitive parentheses string is one that cannot be split into two non-empty va
 👉 Your task: Remove the outermost parentheses of every primitive substring and return the result.
 
 s = "(()())(())"
-break into primitive 
+break into primitive
 (()())   (())
 
 remove parenthessi 
