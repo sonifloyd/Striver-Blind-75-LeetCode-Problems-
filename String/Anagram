@@ -32,9 +32,9 @@ public class ValidAnagramBrute {
 
 Complexity
 
-Time: O(n log n)
+Time: O(n log n) -> sorting array 
 
-Space: O(n)
+Space: O(n) -> char array space 
 -------------------------
 
 Optimized Approach (Frequency Count – BEST)
