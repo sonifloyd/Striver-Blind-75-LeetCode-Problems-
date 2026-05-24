@@ -1,0 +1,27 @@
+public class AllSubstrings {
+
+    public static void main(String[] args) {
+
+        String str = "abc";
+
+        // Starting index
+        for (int i = 0; i < str.length(); i++) {
+
+            // Ending index
+            for (int j = i + 1; j <= str.length(); j++) {
+
+                System.out.println(str.substring(i, j));
+            }
+        }
+    }
+}
+
+-------------------------------------------------------
+Time Complexity
+Total substrings:
+2
+n(n+1)
+
+Loop complexity:
+
+O(n2)
