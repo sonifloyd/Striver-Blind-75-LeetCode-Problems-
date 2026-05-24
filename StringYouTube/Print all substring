@@ -19,8 +19,8 @@ public class AllSubstrings {
 -------------------------------------------------------
 Time Complexity
 Total substrings:
-2
-n(n+1)
+
+n(n+1)/2
 
 Loop complexity:
 
