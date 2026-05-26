@@ -1,0 +1,56 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class FirstUniqueCharacter {
+
+    public static int firstUniqueChar(String str) {
+
+        // Store frequency of each character
+        Map<Character, Integer> charFreqMap = new HashMap<>();
+
+        // Step 1: Count frequency
+        for (int i = 0; i < str.length(); i++) {
+
+            char c = str.charAt(i);
+
+            // get current frequency
+            int freq = charFreqMap.getOrDefault(c, 0);
+
+            // update frequency
+            charFreqMap.put(c, freq + 1);
+        }
+
+        // Step 2: Find first unique character
+        for (int i = 0; i < str.length(); i++) {
+
+            if (charFreqMap.get(str.charAt(i)) == 1) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public static void main(String[] args) {
+
+        String str = "fourByFourFrog";
+
+        int index = firstUniqueChar(str);
+
+        if (index != -1) {
+            System.out.println("First Unique Character: "
+                    + str.charAt(index));
+        } else {
+            System.out.println("No unique character found");
+        }
+    }
+}
+Logic-------------
+Use HashMap<Character, Integer>
+Count frequency of every character
+Traverse string again
+First character with frequency 1 is answer
+Time Complexity
+O(n)
+Space Complexity
+O(n)
