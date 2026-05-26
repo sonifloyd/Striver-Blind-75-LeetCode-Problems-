@@ -1,0 +1,134 @@
+Problem Statement
+
+Find the longest string that:
+
+contains only 2 distinct characters
+characters should alternate
+no same adjacent characters
+Input:  "beabeefeab"
+
+Possible valid strings:
+"babab" -> length 5
+"afafa" -> length 5
+
+Answer = 5
+import java.util.HashSet;
+import java.util.Set;
+
+public class TwoCharacters {
+
+    // Check if string is alternating
+    public static boolean isValid(String str) {
+
+        for (int i = 1; i < str.length(); i++) {
+
+            if (str.charAt(i) == str.charAt(i - 1)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static int alternate(String s) {
+
+        int maxLength = 0;
+
+        // Store unique characters
+        Set<Character> uniqueChars = new HashSet<>();
+
+        for (char c : s.toCharArray()) {
+            uniqueChars.add(c);
+        }
+
+        Character[] chars = uniqueChars.toArray(new Character[0]);
+
+        // Pick every pair
+        for (int i = 0; i < chars.length; i++) {
+
+            for (int j = i + 1; j < chars.length; j++) {
+
+                char first = chars[i];
+                char second = chars[j];
+
+                StringBuilder sb = new StringBuilder();
+
+                // Build string using only 2 chars
+                for (char c : s.toCharArray()) {
+
+                    if (c == first || c == second) {
+                        sb.append(c);
+                    }
+                }
+
+                String filtered = sb.toString();
+
+                // Check alternating condition
+                if (isValid(filtered)) {
+
+                    maxLength = Math.max(maxLength,
+                            filtered.length());
+                }
+            }
+        }
+
+        return maxLength;
+    }
+
+    public static void main(String[] args) {
+
+        String str = "beabeefeab";
+
+        System.out.println(alternate(str));
+    }
+}
+Logic Step-by-Step
+
+For:
+
+beabeefeab
+
+Unique chars:
+
+b, e, a, f
+
+Try all pairs:
+
+b,e
+b,a
+b,f
+e,a
+e,f
+a,f
+
+For pair (b,a):
+
+Filtered string:
+
+babab
+
+Valid alternating string ✔
+
+Length = 5
+
+Time Complexity
+
+If:
+
+n = string length
+k = unique characters
+
+Then:
+
+O(k² * n)
+
+Because:
+
+checking all pairs → k²
+scanning string each time → n
+Important Interview Point
+
+Why use StringBuilder?
+
+String is immutable
+Better performance for repeated append operations
